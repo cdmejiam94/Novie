@@ -2,6 +2,7 @@ package com.preeliminatorylabs.novie.view.activity
 
 import android.os.Bundle
 import com.preeliminatorylabs.novie.R
+import com.preeliminatorylabs.novie.view.fragment.FragmentPopularity
 import com.preeliminatorylabs.novie.view.fragment.FragmentTopRated
 
 class MainActivity : ActivityBase() {
@@ -10,6 +11,6 @@ class MainActivity : ActivityBase() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navigateToFragment(FragmentTopRated.newInstance())
+        navigateToFragment(FragmentPopularity.newInstance())
     }
 }

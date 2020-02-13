@@ -8,13 +8,13 @@ class MovieController {
 
     val service = RetrofitClient().initRetrofit()
 
-    /*fun getPopularMoviesApi(): Single<List<Movie>> {
+    fun getPopularMoviesApi(): Single<List<Movie>> {
         //Logica de negocio
         return service.getPopularMovies().map {
             it.results
         }
 
-    }*/
+    }
 
     fun getTopRatedMoviesApi(): Single<List<Movie>> {
         //Logica de negocio
