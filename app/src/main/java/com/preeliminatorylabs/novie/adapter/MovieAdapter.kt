@@ -17,7 +17,7 @@ class MovieAdapter(val movieList: List<Movie>, val context: Context) : RecyclerV
 
     // Inflates the item views
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.top_rated_movie_item, parent, false)
         return ViewHolder(v)
     }
 
