@@ -1,17 +1,17 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'kotlin-android'
 
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.preeliminatorylabs.novie"
-        minSdkVersion 28
+        applicationId "com.trickortechno.movielite"
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -23,28 +23,61 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+}
+kapt {
+    correctErrorTypes = true
+    generateStubs = true
 }
 
+
 dependencies {
-    //Android
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
-    implementation "androidx.appcompat:appcompat:${rootProject.app_compact}"
-    implementation "androidx.core:core-ktx:${rootProject.core}"
-
-    //View
-    implementation "androidx.constraintlayout:constraintlayout:${rootProject.constraint_layout}"
-    implementation "androidx.recyclerview:recyclerview:${rootProject.recycler_view}"
-    implementation "androidx.cardview:cardview:${rootProject.card_view}"
-    implementation "com.google.android.material:material:${rootProject.material}"
-    implementation "androidx.gridlayout:gridlayout:${rootProject.grid_layout}"
-
-    //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:${rootProject.retrofit}"
-    implementation "com.squareup.retrofit2:converter-gson:${rootProject.retrofit}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${rootProject.kotlin_version}"
+    implementation "androidx.appcompat:appcompat:${rootProject.appCompact}"
+    implementation "androidx.core:core-ktx:${rootProject.androidxCore}"
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.constraintLayout}"
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:${rootProject.lifecycleExtensions}"
+    //RX
+    implementation "io.reactivex.rxjava2:rxandroid:${rootProject.rxandroid}"
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.rxjava}"
+    implementation "io.reactivex.rxjava2:rxkotlin:${rootProject.rxkotlin}"
+    //Retrofit 2
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.retrofit2}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.retrofit2}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.rxAdapter"
+    // JSON Parsing
+    implementation "com.google.code.gson:gson:${rootProject.gson}"
+    //ROOM PERSISTENCE
+    implementation "androidx.room:room-runtime:$rootProject.room_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor "androidx.room:room-compiler:$rootProject.room_version"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$rootProject.room_version"
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:$rootProject.room_version"
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$rootProject.room_version"
+    //lottie
+    implementation "com.airbnb.android:lottie:${rootProject.lottieVersion}"
+    //RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$rootProject.appCompact"
+    //CardView
+    implementation "androidx.cardview:cardview:$rootProject.cardview"
+    //Material Design
+    implementation "com.google.android.material:material:$rootProject.materialDesign"
 
     //Testing
-    testImplementation "junit:junit:${rootProject.junit_impl}"
-    androidTestImplementation "androidx.test.ext:junit:${rootProject.junit_ext}"
-    androidTestImplementation "androidx.test.espresso:espresso-core:${rootProject.espresso}"
+    androidTestImplementation "androidx.room:room-testing:$rootProject.room_version"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }

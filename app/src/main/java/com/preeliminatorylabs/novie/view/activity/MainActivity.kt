@@ -1,13 +1,15 @@
 package com.preeliminatorylabs.novie.view.activity
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.preeliminatorylabs.novie.R
+import com.preeliminatorylabs.novie.view.fragment.FragmentTopRated
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ActivityBase() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        navigateToFragment(FragmentTopRated.newInstance())
     }
 }
