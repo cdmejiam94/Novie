@@ -24,11 +24,11 @@ class MovieController {
 
     }
 
-    /*fun getUpcomingMoviesApi(): Single<List<Movie>> {
+    fun getUpcomingMoviesApi(): Single<List<Movie>> {
         //Logica de negocio
         return service.getUpcomingMovies().map {
             it.results
         }
 
-    }*/
+    }
 }

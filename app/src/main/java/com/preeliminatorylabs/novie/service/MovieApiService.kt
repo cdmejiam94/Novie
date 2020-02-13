@@ -2,6 +2,7 @@ package com.preeliminatorylabs.novie.service
 
 import com.preeliminatorylabs.novie.model.PopularityResponse
 import com.preeliminatorylabs.novie.model.TopRatedResponse
+import com.preeliminatorylabs.novie.model.UpcomingResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 
@@ -13,8 +14,8 @@ interface MovieApiService {
     fun getPopularMovies(): Single<PopularityResponse>
 
 
-    /*@GET("3/movie/upcoming"+API_KEY)
-    fun getUpcomingMovies(): Single<DataUpcomingMovies>*/
+    @GET("3/movie/upcoming?api_key="+API_KEY)
+    fun getUpcomingMovies(): Single<UpcomingResponse>
 
 
     @GET("3/movie/top_rated?api_key="+API_KEY)
