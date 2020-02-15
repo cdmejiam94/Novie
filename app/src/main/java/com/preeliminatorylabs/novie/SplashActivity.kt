@@ -8,7 +8,7 @@ import com.preeliminatorylabs.novie.view.activity.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
-    private final val SPLASH_TIME_OUT: Long = 1500
+    private val SPLASH_TIME_OUT: Long = 1500
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

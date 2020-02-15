@@ -2,8 +2,6 @@ package com.preeliminatorylabs.novie.view.activity
 
 import android.os.Bundle
 import com.preeliminatorylabs.novie.R
-import com.preeliminatorylabs.novie.view.fragment.FragmentPopularity
-import com.preeliminatorylabs.novie.view.fragment.FragmentTopRated
 import com.preeliminatorylabs.novie.view.fragment.FragmentUpcoming
 
 class MainActivity : ActivityBase() {
