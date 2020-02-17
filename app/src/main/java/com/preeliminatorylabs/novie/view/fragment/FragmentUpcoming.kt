@@ -2,10 +2,12 @@ package com.preeliminatorylabs.novie.view.fragment
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,6 +18,7 @@ import com.preeliminatorylabs.novie.R
 import com.preeliminatorylabs.novie.adapter.UpcomingMovieAdapter
 import com.preeliminatorylabs.novie.controller.MovieController
 import com.preeliminatorylabs.novie.databinding.FragmentUpcomingBinding
+import com.preeliminatorylabs.novie.view.activity.MainActivity
 import com.preeliminatorylabs.novie.viewmodel.FragmentUpcomingViewModel
 import com.preeliminatorylabs.novie.viewmodel.FragmentUpcomingViewModelFactory
 
@@ -56,6 +59,12 @@ class FragmentUpcoming : Fragment() {
         })
 
         fragmentUpcomingViewModel.getUpcomingMovies()
+
+        binding.actionReturn.setOnClickListener{
+            activity?.startActivity(Intent(activity, MainActivity::class.java))
+            Toast.makeText(getContext(),"Return to main menu", Toast.LENGTH_SHORT).show()
+        }
+
         return root
 
     }

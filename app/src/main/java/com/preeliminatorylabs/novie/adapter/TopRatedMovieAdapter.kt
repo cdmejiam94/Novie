@@ -11,9 +11,7 @@ import com.bumptech.glide.Glide
 import com.preeliminatorylabs.novie.R
 import com.preeliminatorylabs.novie.model.Movie
 
-const val BASE_IMG_URL = "https://image.tmdb.org/t/p/w200/"
-
-class MovieAdapter(val movieList: List<Movie>, val context: Context) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class TopRatedMovieAdapter (val movieList: List<Movie>, val context: Context) : RecyclerView.Adapter<TopRatedMovieAdapter.ViewHolder>() {
 
     // Inflates the item views
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
@@ -31,8 +29,6 @@ class MovieAdapter(val movieList: List<Movie>, val context: Context) : RecyclerV
         holder.title.text = movieList[position].title
         holder.language.text = movieList[position].language
         holder.release.text = movieList[position].release_date
-//        holder.overview.text = movieList[position].overview
-//        holder.popularity.text = movieList[position].popularity.toString()
         holder.votes.text = movieList[position].votes.toString()
 
     }
@@ -43,8 +39,11 @@ class MovieAdapter(val movieList: List<Movie>, val context: Context) : RecyclerV
         val title = itemView.findViewById<TextView>(R.id.txtTitle)
         val language = itemView.findViewById<TextView>(R.id.txtOriginalLanguage)
         val release = itemView.findViewById<TextView>(R.id.txtReleaseDate)
-//        val overview = itemView.findViewById<TextView>(R.id.txtOverview)
-//        val popularity = itemView.findViewById<TextView>(R.id.txtPopularity)
         val votes = itemView.findViewById<TextView>(R.id.txtVoteCount)
     }
+
+    companion object {
+        private const val BASE_IMG_URL = "https://image.tmdb.org/t/p/w200/"
+    }
+
 }

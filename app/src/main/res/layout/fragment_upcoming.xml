@@ -26,5 +26,14 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:backgroundTint="#D50000"
+            android:src="@drawable/ic_arrow_back_black_24dp" />
+
     </FrameLayout>
 </layout>

@@ -25,7 +25,7 @@ class PopularMovieAdapter(val movieList: List<Movie>, val context: Context) : Re
 
     // Binds each animal in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Glide.with(context).load(BASE_IMG_URL + movieList[position].image).into(holder.image)
+        Glide.with(context).load(Companion.BASE_IMG_URL + movieList[position].image).into(holder.image)
         holder.title.text = movieList[position].title
         holder.language.text = movieList[position].language
         holder.release.text = movieList[position].release_date
@@ -40,5 +40,9 @@ class PopularMovieAdapter(val movieList: List<Movie>, val context: Context) : Re
         val language = itemView.findViewById<TextView>(R.id.txtOriginalLanguage)
         val release = itemView.findViewById<TextView>(R.id.txtReleaseDate)
         val popularity = itemView.findViewById<TextView>(R.id.txtPopularity)
+    }
+
+    companion object {
+        private const val BASE_IMG_URL = "https://image.tmdb.org/t/p/w200/"
     }
 }

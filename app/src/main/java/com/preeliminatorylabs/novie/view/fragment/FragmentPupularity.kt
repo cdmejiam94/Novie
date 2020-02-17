@@ -2,29 +2,29 @@ package com.preeliminatorylabs.novie.view.fragment
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.preeliminatorylabs.novie.R
-import com.preeliminatorylabs.novie.adapter.MovieAdapter
 import com.preeliminatorylabs.novie.adapter.PopularMovieAdapter
 import com.preeliminatorylabs.novie.controller.MovieController
+import com.preeliminatorylabs.novie.databinding.ActivityMainBindingImpl
 import com.preeliminatorylabs.novie.databinding.FragmentPopularBinding
-import com.preeliminatorylabs.novie.databinding.FragmentTopRatedBinding
-import com.preeliminatorylabs.novie.model.Movie
+import com.preeliminatorylabs.novie.view.activity.MainActivity
 import com.preeliminatorylabs.novie.viewmodel.FragmentPopularityViewModel
 import com.preeliminatorylabs.novie.viewmodel.FragmentPopularityViewModelFactory
-import com.preeliminatorylabs.novie.viewmodel.FragmentTopRatedViewModel
-import com.preeliminatorylabs.novie.viewmodel.FragmentTopRatedViewModelFactory
+import java.time.Duration
 
 class FragmentPopularity : Fragment() {
 
@@ -50,6 +50,7 @@ class FragmentPopularity : Fragment() {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_popular, container, false)
+
         binding.recyclerViewPopularity.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
 
         fragmentPopularityViewModel = ViewModelProviders.of(
@@ -63,6 +64,13 @@ class FragmentPopularity : Fragment() {
         })
 
         fragmentPopularityViewModel.getPopularMovies()
+
+
+        binding.actionReturn.setOnClickListener{
+            activity?.startActivity(Intent(activity,MainActivity::class.java))
+            Toast.makeText(getContext(),"Return to main menu", Toast.LENGTH_SHORT).show()
+        }
+
         return root
 
     }

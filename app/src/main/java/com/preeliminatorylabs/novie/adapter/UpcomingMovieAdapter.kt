@@ -38,4 +38,8 @@ class UpcomingMovieAdapter(val movieList: List<Movie>, val context: Context) : R
         val language = itemView.findViewById<TextView>(R.id.txtOriginalLanguage)
         val release = itemView.findViewById<TextView>(R.id.txtReleaseDate)
     }
+
+    companion object {
+        private const val BASE_IMG_URL = "https://image.tmdb.org/t/p/w200/"
+    }
 }
